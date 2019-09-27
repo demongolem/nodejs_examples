@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 
 var http = require('http');
+var word_gen = require("./word_generation.js")
 
 const { NlpManager } = require('node-nlp');
 
@@ -27,9 +28,11 @@ http.createServer(function handler(req, res) {
             (async () => {
             	  let manager = new NlpManager({ ner: { useDuckling: true } });
             	  const result = await manager.process(post['text']);
-            	  console.log(JSON.stringify(result, null, 2));
-          		  res.writeHead(200, {'Content-Type': 'application/json'});
-          		  res.end(JSON.stringify(result, null, 2));
+            	  json_result = JSON.stringify(result, null, 2);
+            	  console.log(json_result);
+            	  word_gen.create_doc(json_result, 'example.docx');
+            	  res.writeHead(200, {'Content-Type': 'application/json'});
+          		  res.end(json_result);
             })();
         });
     }	
