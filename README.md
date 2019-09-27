@@ -5,6 +5,7 @@
 1. Hello World
 2. NLU/NLG response
 3. Mongo
+4. Duckling Integration combined with Word export
 
 ## Usage
 
