@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var http = require('http');
 
 const { NlpManager } = require('node-nlp');
